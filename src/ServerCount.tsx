@@ -18,11 +18,12 @@ export default function ServerCount({
           <CircularProgress />
         </Box>
       ) : (
-        serverCount && (
+        serverCount ||
+        (errorMessage && (
           <Alert severity={errorMessage ? 'error' : 'warning'}>
             {errorMessage || `По версии сервера: ${serverCount} раз`}
           </Alert>
-        )
+        ))
       )}
     </>
   );
